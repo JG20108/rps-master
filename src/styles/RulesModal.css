@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -24,6 +26,18 @@
     line-height: 1.5; /* Add more line height for better readability */
   }
 
+  .rock-text {
+    color: hsl(349, 71%, 52%); /* Color for rock */
+  }
+  
+  .paper-text {
+    color: hsl(230, 89%, 62%); /* Color for paper */
+  }
+  
+  .scissors-text {
+    color: hsl(39, 89%, 49%); /* Color for scissors */
+  }
+
   @keyframes scrollCredits {
     0% {
       transform: translateY(100%);
@@ -40,11 +54,14 @@
     max-width: 80%; /* Set max-width to 50% of the modal-content width */
     margin: 0 auto; /* Center the container */
     margin-left: 6rem;
-    animation: scrollCredits 45s linear infinite; /* Adjust time as needed */
+    animation: scrollCredits 35s linear infinite; /* Adjust time as needed */
   }
 
   .credits-container h2 {
+    font-family: "Orbitron", sans-serif; /* Apply the Orbitron font family */
     margin-bottom: 1rem; /* Add space below the heading */
+    font-size: 39px;
+    text-transform: uppercase; /* Uppercase the text */
   }
 
   .credits-container p,
