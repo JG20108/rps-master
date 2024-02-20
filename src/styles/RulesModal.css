@@ -10,6 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0; /* Start with the overlay being transparent */
+    visibility: hidden; /* Start with the overlay not being visible */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition for both properties */
+  }
+
+  .modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
   }
   
   .modal-content {
@@ -84,4 +92,5 @@
     border: 1px solid white; /* Add border to the button */
     background: none; /* Remove any background from the button */
     color: white; /* Set the button text color */
+    pointer-events: auto; /* Ensure the close button is interactive */
   }

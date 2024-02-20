@@ -2,10 +2,11 @@ import './styles/RulesModal.css'; // Make sure you have this CSS file for modal 
 import PropTypes from 'prop-types';
 
 function RulesModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
+  // Use a class to toggle the visibility and opacity
+  const overlayClass = isOpen ? "modal-overlay open" : "modal-overlay";
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className={overlayClass} onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="credits-container">
           <h2>Galactic Battle: Rock Paper Scissors!</h2>
