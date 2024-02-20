@@ -65,6 +65,12 @@ header {
   font-size: 1rem; /* Adjusted font size */
   text-transform: uppercase; /* Added text transformation */
   letter-spacing: 1px; /* Added letter spacing */
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for hover effect */
+}
+
+.reset:hover {
+  background-color: hsl(229, 64%, 46%); /* Example hover background color */
+  color: white; /* Example hover text color */
 }
 
 /* Main styles */
@@ -154,8 +160,9 @@ main {
 /* Footer styles */
 footer {
   position: absolute;
-  bottom: 2rem;
-  text-align: center; /* Center the button */
+  bottom: 2rem; /* Adjust as needed for distance from the bottom */
+  left: 2rem; /* Adjust as needed for distance from the left */
+  text-align: left; /* Align the text to the left */
 }
 
 .rules {
@@ -174,9 +181,9 @@ footer {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 0.75rem;
+  font-size: 8px;
   text-align: right;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .attribution a {
