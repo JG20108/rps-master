@@ -86,13 +86,15 @@ function App() {
         </section>
         <section className="result">
           <p>{result}</p>
+          <div className='comp-choice'>
           {computerChoice && (
-            <div className={`choice-button ${computerChoice} computer-choice`}>
+            <div className={`computer-choice-button ${computerChoice}`}>
               <div className="inner">
                 <img src={computerChoice === 'rock' ? iconRock : computerChoice === 'paper' ? iconPaper : iconScissors} alt={`Computer chose ${computerChoice}`} />
               </div>
             </div>
           )}
+          </div>
         </section>
       </main>
 

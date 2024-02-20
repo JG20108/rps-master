@@ -17,11 +17,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-size: 18px;
+  font-size: 1.125rem; 
 }
 /* Header styles */
 header {
-  font-size: 38px;
+  font-size: 2.375rem; 
   position: absolute;
   top: 2rem; /* Adjust this value to set the header's distance from the top */
   left: 50%;
@@ -41,7 +41,8 @@ header {
   font-family: 'Press Start 2P', sans-serif; /* Apply the font */
   color: white; /* Set the text color */
   text-transform: uppercase; /* Uppercase the text */
-  font-size: 28px;
+  font-size: 1.75rem; 
+  pointer-events: none; /* This will make the button non-interactive */
 }
 
 .score-board {
@@ -52,8 +53,14 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 10rem; /* Adjust this value to create more space between the logo and the scoreboard */
-  font-size: 22px;
+  margin-left: 5rem; /* Adjusted to a relative unit, consider using % or vw for responsiveness */
+  font-size: 1.375rem; 
+  pointer-events: none; /* This will make the button non-interactive */
+
+}
+
+.result{
+  pointer-events: none; /* This will make the button non-interactive */
 }
 
 .reset {
@@ -61,10 +68,11 @@ header {
   border: none;
   color: inherit;
   cursor: pointer;
-  font-size: 1rem; /* Adjusted font size */
+  font-size: 1rem; /* Already using a relative unit */
   text-transform: uppercase; /* Added text transformation */
   letter-spacing: 1px; /* Added letter spacing */
   transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for hover effect */
+  pointer-events:all; /* This will make the button non-interactive */
 }
 
 .reset:hover {
@@ -76,8 +84,6 @@ header {
 main {
   text-align: center;
 }
-
-
 
 /* Position each button in the triangular pattern */
 #rock {
@@ -98,45 +104,11 @@ main {
   transform: translate(-50%, 50%); /* Adjust to align properly at the top right */
 }
 
-.choice-button .inner {
-  border-radius: 50%;
-  width: calc(100% - 4rem); /* Subtract double the padding amount */
-  height: calc(100% - 4rem); /* Subtract double the padding amount */
-  padding: 6rem; /* Add padding inside the .inner to create space around the image */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rock .inner {
-  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-  box-shadow: 0 4px #9b2335;
-}
-
-.paper .inner {
-  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-  box-shadow: 0 4px #263e9b;
-}
-
-.scissors .inner {
-  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-  box-shadow: 0 4px #c76c14;
-}
-
-/* Choices container styles */
-.choices {
-  position: relative; /* Set the position context for absolute children */
-  width: 610px; /* Adjust the width to give more space for the buttons */
-  height: 500px; /* Adjust the height to match the width for a balanced triangle */
-  margin: 6rem auto; /* Increase margin to push the container down */
-}
-
-/* Individual button styles */
-.choice-button {
-  position: absolute; /* Position each button absolutely within .choices */
-  width: 190px; /* Adjust the width if needed */
-  height: 190px; /* Adjust the height if needed */
-  border: solid 8px white; /* Adjust the white border if needed */
+.choice-button, .computer-choice-button {
+  position: absolute;
+  width: 11.875rem; /* Kept as rem, consider responsiveness */
+  height: 11.875rem; /* Kept as rem, consider responsiveness */
+  border: solid 0.5rem white; /* Adjust the white border if needed */
   border-radius: 50%;
   padding: 1rem;
   cursor: pointer;
@@ -148,52 +120,63 @@ main {
   overflow: hidden; /* Ensure inner div does not exceed the border */
 }
 
-.choice-button img {
-  width: 100px; /* Keep the original image size */
-  height: 100px; /* Keep the original image size */
+.choice-button img{
+  width: 5.75rem; 
+  height: 5.75rem; 
 }
 
-.result {
-  /* Center the result text and provide space for the computer's choice image */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* Remove the margin-top if it's not needed */
-}
-
-.result p {
-  font-size: 1.5rem;
-  /* Adjust the margin as needed to create space between the text and the computer's choice image */
-  margin-bottom: 6rem; /* Increase space below the result text */
-}
-
-.computer-choice {
-  /* Adjust the margin-top to push the computer's choice image down */
-  margin-top: 1rem; /* Add space above the computer's choice image */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px; /* Set the width of the computer's choice */
-  height: 60px; /* Set the height of the computer's choice */
-  border-radius: 50%; /* Make it circular */
-  margin: 0 auto; /* Center horizontally */
-}
-
-
-.computer-choice .inner {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.choice-button .inner, .computer-choice-button .inner {
   border-radius: 50%;
+  width: calc(100% - 4rem); /* Subtract double the padding amount */
+  height: calc(100% - 4rem); /* Subtract double the padding amount */
+  padding: 6rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.computer-choice .inner img {
-  width: 30px;
-  height: 30px;
+.comp-choice {
+  /* If .comp-choice is only visible sometimes, reserve its space with min-height */
+  min-height: 4.875rem; /* Adjust based on the height of the computer choice button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* This will make the button non-interactive */
+}
+
+/* Unique styles for computer's choice-button */
+.computer-choice-button {
+  position: static; /* Change from absolute to static if flexbox is used for positioning */
+  width: 4.875rem; /* Kept as rem, consider responsiveness */
+  height: 4.875rem; /* Kept as rem, consider responsiveness */
+}
+
+.computer-choice-button img {
+  width: 2.75rem; 
+  height: 2.75rem; 
+}
+
+.rock .inner, .computer-choice-button.rock .inner {
+  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: 0 4px #9b2335;
+}
+
+.paper .inner, .computer-choice-button.paper .inner {
+  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: 0 4px #263e9b;
+}
+
+.scissors .inner, .computer-choice-button.scissors .inner {
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: 0 4px #c76c14;
+}
+
+/* Choices container styles */
+.choices {
+  position: relative; /* Set the position context for absolute children */
+  width: 40vw; 
+  height: 50vh; 
+  margin: 6rem auto; /* Increase margin to push the container down */
 }
 
 /* Footer styles */
@@ -201,7 +184,7 @@ footer {
   position: absolute;
   bottom: 2rem; /* Adjust as needed for distance from the bottom */
   left: 2rem; /* Adjust as needed for distance from the left */
-  text-align: left; /* Align the text to the left */
+  text-align: left; 
 }
 
 .rules {
@@ -210,9 +193,9 @@ footer {
   color: white;
   padding: 0.5rem 2rem;
   cursor: pointer;
-  font-size: 1rem; /* Adjusted font size */
+  font-size: 1rem; 
   text-transform: uppercase; /* Added text transformation */
-  letter-spacing: 1px; /* Added letter spacing */
+  letter-spacing: 1px; 
 }
 
 /* Attribution styles */
@@ -220,7 +203,7 @@ footer {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 8px;
+  font-size: 0.5rem; 
   text-align: right;
   padding: 0.5rem;
 }
