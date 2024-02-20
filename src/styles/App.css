@@ -78,35 +78,7 @@ main {
   text-align: center;
 }
 
-/* Choices container styles */
-.choices {
-  position: relative; /* Set the position context for absolute children */
-  width: 610px; /* Adjust the width to give more space for the buttons */
-  height: 500px; /* Adjust the height to match the width for a balanced triangle */
-  margin: 6rem auto; /* Increase margin to push the container down */
-}
 
-/* Individual button styles */
-.choice-button {
-  position: absolute; /* Position each button absolutely within .choices */
-  width: 190px; /* Adjust the width if needed */
-  height: 190px; /* Adjust the height if needed */
-  border: solid 8px white; /* Adjust the white border if needed */
-  border-radius: 50%;
-  padding: 1rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none; /* Remove background from the button itself */
-  box-shadow: none; /* Remove box-shadow from the button itself */
-  overflow: hidden; /* Ensure inner div does not exceed the border */
-}
-
-.choice-button img {
-  width: 100px; /* Keep the original image size */
-  height: 100px; /* Keep the original image size */
-}
 
 /* Position each button in the triangular pattern */
 #rock {
@@ -152,9 +124,61 @@ main {
   box-shadow: 0 4px #c76c14;
 }
 
+/* Choices container styles */
+.choices {
+  position: relative; /* Set the position context for absolute children */
+  width: 610px; /* Adjust the width to give more space for the buttons */
+  height: 500px; /* Adjust the height to match the width for a balanced triangle */
+  margin: 6rem auto; /* Increase margin to push the container down */
+}
+
+/* Individual button styles */
+.choice-button {
+  position: absolute; /* Position each button absolutely within .choices */
+  width: 190px; /* Adjust the width if needed */
+  height: 190px; /* Adjust the height if needed */
+  border: solid 8px white; /* Adjust the white border if needed */
+  border-radius: 50%;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none; /* Remove background from the button itself */
+  box-shadow: none; /* Remove box-shadow from the button itself */
+  overflow: hidden; /* Ensure inner div does not exceed the border */
+}
+
+.choice-button img {
+  width: 100px; /* Keep the original image size */
+  height: 100px; /* Keep the original image size */
+}
+
+.result {
+  /* Center the result text and provide space for the computer's choice image */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Remove the margin-top if it's not needed */
+}
+
 .result p {
   font-size: 1.5rem;
-  margin-top: 2rem;
+  /* Adjust the margin as needed to create space between the text and the computer's choice image */
+  margin-bottom: 6rem; /* Increase space below the result text */
+}
+
+.computer-choice {
+  /* Adjust the margin-top to push the computer's choice image down */
+  margin-top: 1rem; /* Add space above the computer's choice image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px; /* Set the width of the computer's choice */
+  height: 60px; /* Set the height of the computer's choice */
+  border-radius: 50%; /* Make it circular */
+  margin: 0 auto; /* Center horizontally */
 }
 
 /* Footer styles */

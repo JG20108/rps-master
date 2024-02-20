@@ -7,8 +7,8 @@ import RulesModal from './RulesModal'; // Import the modal component
 
 function App() {
   const [score, setScore] = useState(() => parseInt(localStorage.getItem('rpsScore'), 10) || 0);
-  // Set the initial result state to "Select a choice!"
   const [result, setResult] = useState('Select a choice!');
+  const [computerChoice, setComputerChoice] = useState(''); // State to hold the computer's choice
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
   useEffect(() => {
@@ -16,18 +16,20 @@ function App() {
   }, [score]);
 
   function toggleModal() {
-    setIsModalOpen(!isModalOpen); // Function to toggle modal visibility
+    setIsModalOpen(!isModalOpen);
   }
 
   function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
-    return choices[Math.floor(Math.random() * choices.length)];
+    const choice = choices[Math.floor(Math.random() * choices.length)];
+    setComputerChoice(choice); // Set the computer's choice
+    return choice;
   }
 
   function playRound(playerSelection) {
     const computerSelection = computerPlay();
     if (playerSelection === computerSelection) {
-      setResult(`It's a draw!`);
+      setResult(`It's a draw! The computer also chose ${computerSelection}.`);
       return;
     } 
 
@@ -39,19 +41,19 @@ function App() {
 
     if (computerSelection === winConditions[playerSelection]) {
       setScore(score + 1);
-      setResult('You win!');
+      setResult(`You win! The computer chose ${computerSelection}.`);
     } else {
       setScore(score - 1);
-      setResult('You lose!');
+      setResult(`You lose! The computer chose ${computerSelection}.`);
     }
   }
 
   function resetScore() {
     setScore(0);
-    setResult('Select a choice!'); // Reset the result to the placeholder message
+    setResult('Select a choice!');
+    setComputerChoice(''); // Reset the computer's choice
     localStorage.removeItem('rpsScore');
   }
-
 
   return (
     <>
@@ -84,6 +86,13 @@ function App() {
         </section>
         <section className="result">
           <p>{result}</p>
+          {computerChoice && (
+            <div className={`choice-button ${computerChoice} computer-choice`}>
+              <div className="inner" style={{ width: '50px', height: '50px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '50%' }}>
+                <img src={computerChoice === 'rock' ? iconRock : computerChoice === 'paper' ? iconPaper : iconScissors} alt={`Computer chose ${computerChoice}`} style={{ width: '30px', height: '30px' }} />
+              </div>
+            </div>
+          )}
         </section>
       </main>
 
