@@ -59,8 +59,15 @@ header {
 
 }
 
-.result{
-  pointer-events: none; /* This will make the button non-interactive */
+/* Adjust the .result section to create space for the computer's choice image */
+.result {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* Adjust the gap as needed */
+  pointer-events: none;
 }
 
 .reset {
