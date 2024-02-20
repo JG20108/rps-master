@@ -19,7 +19,6 @@ body {
   min-height: 100vh;
   font-size: 18px;
 }
-
 /* Header styles */
 header {
   font-size: 38px;
@@ -181,6 +180,22 @@ main {
   margin: 0 auto; /* Center horizontally */
 }
 
+
+.computer-choice .inner {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.computer-choice .inner img {
+  width: 30px;
+  height: 30px;
+}
+
 /* Footer styles */
 footer {
   position: absolute;
@@ -213,9 +228,4 @@ footer {
 .attribution a {
   color: #fff;
   text-decoration: none;
-}
-
-/* Add media queries for responsiveness if needed */
-@media (min-width: 1366px) {
-  /* Adjust styles for desktop layout */
 }

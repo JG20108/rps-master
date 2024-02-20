@@ -88,8 +88,8 @@ function App() {
           <p>{result}</p>
           {computerChoice && (
             <div className={`choice-button ${computerChoice} computer-choice`}>
-              <div className="inner" style={{ width: '50px', height: '50px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '50%' }}>
-                <img src={computerChoice === 'rock' ? iconRock : computerChoice === 'paper' ? iconPaper : iconScissors} alt={`Computer chose ${computerChoice}`} style={{ width: '30px', height: '30px' }} />
+              <div className="inner">
+                <img src={computerChoice === 'rock' ? iconRock : computerChoice === 'paper' ? iconPaper : iconScissors} alt={`Computer chose ${computerChoice}`} />
               </div>
             </div>
           )}
