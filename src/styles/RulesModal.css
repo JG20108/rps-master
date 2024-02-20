@@ -62,7 +62,8 @@
     max-width: 80%; /* Set max-width to 50% of the modal-content width */
     margin: 0 auto; /* Center the container */
     margin-left: 6rem;
-    animation: scrollCredits 30s linear infinite; /* Adjust time as needed */
+    animation: none; /* Remove the animation here */
+    visibility: hidden; /* Make it hidden by default */
   }
 
   .credits-container h2 {
@@ -93,4 +94,10 @@
     background: none; /* Remove any background from the button */
     color: white; /* Set the button text color */
     pointer-events: auto; /* Ensure the close button is interactive */
+  }
+
+  /* This class will be added or removed by JavaScript */
+  .credits-container.run-animation {
+    animation: scrollCredits 30s linear forwards; /* Define the animation */
+    visibility: visible; /* Only make it visible when animating */
   }

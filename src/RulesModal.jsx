@@ -1,14 +1,54 @@
-import './styles/RulesModal.css'; // Make sure you have this CSS file for modal styles
+import { useEffect, useRef, useState } from 'react';
+import './styles/RulesModal.css';
 import PropTypes from 'prop-types';
 
 function RulesModal({ isOpen, onClose }) {
-  // Use a class to toggle the visibility and opacity
-  const overlayClass = isOpen ? "modal-overlay open" : "modal-overlay";
+  const modalContentRef = useRef(null);
+  const [animationClass, setAnimationClass] = useState('');
+
+  useEffect(() => {
+    const handleAnimationEnd = () => {
+      setAnimationClass(''); // First, remove the class to reset the animation
+      setTimeout(() => setAnimationClass('run-animation'), 10); // Then, re-add the class to restart the animation
+    };
+
+    const modalContent = modalContentRef.current;
+    if (modalContent) {
+      modalContent.addEventListener('animationend', handleAnimationEnd);
+    }
+
+    return () => {
+      if (modalContent) {
+        modalContent.removeEventListener('animationend', handleAnimationEnd);
+      }
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    let timeoutId;
+    if (isOpen) {
+      setAnimationClass('run-animation');
+    } else {
+      // Wait for the CSS transition to finish before removing the animation class
+      timeoutId = setTimeout(() => {
+        setAnimationClass('');
+      }, 500); // This delay should match the CSS transition time
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [isOpen]);
+
+  const handleClose = () => {
+    if (modalContentRef.current) {
+      modalContentRef.current.scrollTop = 0; // Reset the scroll to the top immediately
+    }
+    onClose();
+  };
 
   return (
-    <div className={overlayClass} onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="credits-container">
+    <div className={isOpen ? "modal-overlay open" : "modal-overlay"} onClick={handleClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} ref={modalContentRef}>
+        <div className={`credits-container ${animationClass}`}>
           <h2>Galactic Battle: Rock Paper Scissors!</h2>
           <p>Prepare to clash in the ultimate game of wit and strategy, where cosmic forces collide. Here&apos;s how to become a Rock Paper Scissors champion:</p>
           <ul>
