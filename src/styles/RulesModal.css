@@ -1,0 +1,40 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #000; /* Ensure text color is visible against a white background */
+    font-size: 16px; /* Adjust font size as needed */
+    width: 65%; /* Set the width to 65% of the viewport */
+    height: 85%; /* Set the width to 65% of the viewport */
+    overflow: hidden; /* Hide the overflow */
+    position: relative; /* Position relative for the absolute positioned credits */
+    font-size: 28px;
+  }
+
+  @keyframes scrollCredits {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  .credits-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    animation: scrollCredits 45s linear infinite; /* Adjust time as needed */
+  }

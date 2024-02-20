@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react';
-import './App.css';
-import logo from '/assets/images/logo.svg';
+import './styles/App.css';
 import iconRock from '/assets/images/icon-rock.svg';
 import iconPaper from '/assets/images/icon-paper.svg';
 import iconScissors from '/assets/images/icon-scissors.svg';
+import RulesModal from './RulesModal'; // Import the modal component
 
 function App() {
   const [score, setScore] = useState(() => parseInt(localStorage.getItem('rpsScore'), 10) || 0);
-  const [result, setResult] = useState('');
+  // Set the initial result state to "Select a choice!"
+  const [result, setResult] = useState('Select a choice!');
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
   useEffect(() => {
     localStorage.setItem('rpsScore', score);
   }, [score]);
+
+  function toggleModal() {
+    setIsModalOpen(!isModalOpen); // Function to toggle modal visibility
+  }
 
   function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -42,6 +48,7 @@ function App() {
 
   function resetScore() {
     setScore(0);
+    setResult('Select a choice!'); // Reset the result to the placeholder message
     localStorage.removeItem('rpsScore');
   }
 
@@ -76,13 +83,14 @@ function App() {
           </button>
         </section>
         <section className="result">
-          {result && <p>{result}</p>}
+          <p>{result}</p>
         </section>
       </main>
 
       <footer>
-        <button className="rules">Rules</button>
+        <button className="rules" onClick={toggleModal}>Rules</button>
       </footer>
+      <RulesModal isOpen={isModalOpen} onClose={toggleModal} />
 
       <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
