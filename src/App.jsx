@@ -49,7 +49,7 @@ function App() {
   return (
     <>
       <header>
-        <img src={logo} alt="Rock Paper Scissors" />
+        <h1 className="logo-text">Rock Paper Scissors</h1>
         <div className="score-board">
           <span>Score</span>
           <div className="score">{score}</div>

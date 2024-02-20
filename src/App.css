@@ -1,11 +1,13 @@
-/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Press+Start+2P&display=swap');
 
 /* General reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -20,6 +22,7 @@ body {
 
 /* Header styles */
 header {
+  font-size: 38px;
   position: absolute;
   top: 2rem; /* Adjust this value to set the header's distance from the top */
   left: 50%;
@@ -32,6 +35,14 @@ header {
   align-items: center;
   border: 3px solid hsl(217, 16%, 45%);
   border-radius: 0.5rem;
+  text-transform: uppercase; /* Uppercase the text */
+}
+
+.logo-text {
+  font-family: 'Press Start 2P', sans-serif; /* Apply the font */
+  color: white; /* Set the text color */
+  text-transform: uppercase; /* Uppercase the text */
+  font-size: 28px;
 }
 
 .score-board {
@@ -43,6 +54,7 @@ header {
   flex-direction: column;
   align-items: center;
   margin-left: 10rem; /* Adjust this value to create more space between the logo and the scoreboard */
+  font-size: 22px;
 }
 
 .reset {
