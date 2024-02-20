@@ -21,6 +21,7 @@
     overflow: hidden; /* Hide the overflow */
     position: relative; /* Position relative for the absolute positioned credits */
     font-size: 28px;
+    line-height: 1.5; /* Add more line height for better readability */
   }
 
   @keyframes scrollCredits {
@@ -36,5 +37,34 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    max-width: 80%; /* Set max-width to 50% of the modal-content width */
+    margin: 0 auto; /* Center the container */
+    margin-left: 6rem;
     animation: scrollCredits 45s linear infinite; /* Adjust time as needed */
+  }
+
+  .credits-container h2 {
+    margin-bottom: 1rem; /* Add space below the heading */
+  }
+
+  .credits-container p,
+  .credits-container ul {
+    margin-bottom: 1rem; /* Add space below paragraphs and lists */
+    text-align: justify; /* Justify text for better readability */
+  }
+
+  .credits-container li {
+    margin-bottom: 0.5rem; /* Add space below list items */
+  }
+
+  .credits-container .close-button {
+    margin-top: 2rem; /* Add space above the close button */
+    padding: 0.5rem 1rem; /* Add padding to the button */
+    font-size: 1rem; /* Adjust font size for the button */
+    text-transform: uppercase; /* Uppercase the button text */
+    letter-spacing: 1px; /* Add letter spacing to the button text */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    border: 1px solid white; /* Add border to the button */
+    background: none; /* Remove any background from the button */
+    color: white; /* Set the button text color */
   }

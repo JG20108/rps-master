@@ -15,8 +15,8 @@ function RulesModal({ isOpen, onClose }) {
             <li><strong>Paper covers Rock:</strong> Envelop the stone with the wisdom of ages!</li>
             <li><strong>Scissors cuts Paper:</strong> Slice through knowledge with the edge of destiny!</li>
           </ul>
-          <p>Choose your weapon wisely, as your fate is sealed with your decision. The first to conquer their opponent in three cosmic duels shall be crowned the ruler of the galaxy. May the stars align in your favor!</p>
-          {/* <button className="close-button" onClick={onClose}>Close</button> */}
+          <p>Choose your weapon wisely, as your fate is sealed with your decision. The first to conquer their opponent in three cosmic duels shall be crowned the ruler of the galaxy...</p>
+          <h2> May the stars align in your favor!</h2>
         </div>
       </div>
     </div>
