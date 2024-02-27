@@ -3,13 +3,15 @@ import './styles/App.css';
 import iconRock from '/assets/images/icon-rock.svg';
 import iconPaper from '/assets/images/icon-paper.svg';
 import iconScissors from '/assets/images/icon-scissors.svg';
-import RulesModal from './RulesModal'; // Import the modal component
+import RulesModal from './RulesModal';
+import ConfirmationModal from './ConfirmationModal';
 
 function App() {
   const [score, setScore] = useState(() => parseInt(localStorage.getItem('rpsScore'), 10) || 0);
   const [result, setResult] = useState('Select a choice!');
   const [computerChoice, setComputerChoice] = useState(''); // State to hold the computer's choice
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('rpsScore', score);
@@ -48,11 +50,12 @@ function App() {
     }
   }
 
-  function resetScore() {
+  function handleResetConfirm() {
     setScore(0);
     setResult('Select a choice!');
     setComputerChoice(''); // Reset the computer's choice
     localStorage.removeItem('rpsScore');
+    setIsConfirmationModalOpen(false); // Close the modal after confirming
   }
 
   return (
@@ -62,7 +65,7 @@ function App() {
         <div className="score-board">
           <span>Score</span>
           <div className="score">{score}</div>
-          <button className="reset" onClick={resetScore}>Reset</button>
+          <button className="reset" onClick={() => setIsConfirmationModalOpen(true)}>Reset</button>
         </div>
       </header>
 
@@ -102,6 +105,13 @@ function App() {
         <button className="rules" onClick={toggleModal}>Rules</button>
       </footer>
       <RulesModal isOpen={isModalOpen} onClose={toggleModal} />
+
+      <ConfirmationModal
+        isOpen={isConfirmationModalOpen}
+        message="Are you sure you want to reset?"
+        onConfirm={handleResetConfirm}
+        onCancel={() => setIsConfirmationModalOpen(false)}
+      />
 
       <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
