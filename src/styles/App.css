@@ -111,6 +111,18 @@ main {
   transform: translate(-50%, 50%); /* Adjust to align properly at the top right */
 }
 
+#lizard {
+  bottom: 0;
+  right: 20%;
+  transform: translate(50%, 0); /* Adjust to align properly at the bottom right */
+}
+
+#spock {
+  bottom: 0;
+  left: 45%;
+  transform: translate(-150%, 0); /* Adjust to align properly at the bottom left */
+}
+
 .choice-button, .computer-choice-button {
   position: absolute;
   width: 11.875rem; /* Kept as rem, consider responsiveness */
@@ -125,6 +137,7 @@ main {
   background: none; /* Remove background from the button itself */
   box-shadow: none; /* Remove box-shadow from the button itself */
   overflow: hidden; /* Ensure inner div does not exceed the border */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added smooth transition */
 }
 
 .choice-button img{
@@ -178,6 +191,16 @@ main {
   box-shadow: 0 4px #c76c14;
 }
 
+.lizard .inner, .computer-choice-button.lizard .inner {
+  background: linear-gradient(135deg, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  box-shadow: 0 4px hsl(261, 72%, 50%);
+}
+
+.spock .inner, .computer-choice-button.spock .inner {
+  background: linear-gradient(135deg, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  box-shadow: 0 4px hsl(189, 58%, 50%);
+}
+
 /* Choices container styles */
 .choices {
   position: relative; /* Set the position context for absolute children */
@@ -219,3 +242,16 @@ footer {
   color: #fff;
   text-decoration: none;
 }
+.game-mode-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+

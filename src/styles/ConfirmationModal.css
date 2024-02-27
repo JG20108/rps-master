@@ -5,9 +5,20 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
+    display: none; /* Hide modal initially */
     justify-content: center;
     align-items: center;
+    transition: opacity 0.5s ease;
+    opacity: 0; /* Ensure it starts as invisible */
+  }
+
+  .confirmation-modal-overlay.open {
+    display: flex; /* Show modal */
+    opacity: 1;
+  }
+
+  .confirmation-modal p {
+    color: #333; /* Dark color for text */
   }
   
   .confirmation-modal {
