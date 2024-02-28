@@ -52,3 +52,15 @@ This project was inspired by the [Rock, Paper, Scissors challenge on Frontend Me
 I'm working hard to bring these new features and game modes to you. Stay tuned for updates and get ready for an even more exciting gaming experience!
 
 **Happy gaming!** 🎉🗿 🎮
+
+## 💻 Technologies Used
+
+This project is built using modern web development tools and libraries to ensure a high-quality user experience:
+
+- **[Vite.js](https://vitejs.dev/)** 🚀: A blazing fast build tool for modern web projects, providing a smooth developer experience and optimized builds.
+
+- **[React.js](https://reactjs.org/)** ⚛️: A JavaScript library for building user interfaces, enabling dynamic and responsive web applications.
+
+- **JavaScript** 📜: The programming language of the web, used for creating interactive and dynamic content.
+
+- **CSS** 🎨: Used for styling the application, ensuring it is visually appealing and accessible across different devices and screen sizes.
