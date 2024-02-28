@@ -1,23 +1,24 @@
 .confirmation-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none; /* Hide modal initially */
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease;
-    opacity: 0; /* Ensure it starts as invisible */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
 
-  .confirmation-modal-overlay.open {
-    display: flex; /* Show modal */
-    opacity: 1;
-  }
+.confirmation-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
 
-  .confirmation-modal p {
+.confirmation-modal p {
     color: #333; /* Dark color for text */
   }
   
@@ -28,4 +29,5 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: auto; /* Center the modal */
   }
