@@ -137,7 +137,7 @@ main {
   background: none; /* Remove background from the button itself */
   box-shadow: none; /* Remove box-shadow from the button itself */
   overflow: hidden; /* Ensure inner div does not exceed the border */
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added smooth transition */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Added smooth transition */
 }
 
 .choice-button img{
@@ -254,13 +254,19 @@ footer {
   cursor: pointer;
 }
 
-.spock, .lizard {
+/* Ensure transitions are defined for entering and exiting animations */
+.lizard, .spock {
   transition: opacity 0.5s ease, transform 0.5s ease;
-  opacity: 0; /* Start with buttons being transparent */
-  transform: scale(0); /* Start with buttons scaled down */
 }
 
-.game-mode-rpsls .spock, .game-mode-rpsls .lizard {
-  opacity: 1; /* Fully visible */
-  transform: scale(1); /* Scale to normal size */
+/* Make lizard and spock buttons invisible and scaled down by default */
+.lizard, .spock {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Make them visible and scaled normally when in game-mode-rpsls */
+.game-mode-rpsls .lizard, .game-mode-rpsls .spock {
+  opacity: 1;
+  transform: scale(1);
 }

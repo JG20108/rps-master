@@ -97,7 +97,7 @@ function App() {
       <button className="game-mode-toggle" onClick={toggleGameMode}>
         Switch Mode
       </button>
-      <main>
+      <main className={`game-mode-${gameMode}`}>
         <section className={`choices ${gameMode === 'rpsls' ? 'game-mode-rpsls' : ''}`}>
           <button id="rock" className="choice-button rock" onClick={() => playRound('rock')}>
             <div className="inner">
