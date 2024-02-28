@@ -254,4 +254,13 @@ footer {
   cursor: pointer;
 }
 
+.spock, .lizard {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0; /* Start with buttons being transparent */
+  transform: scale(0); /* Start with buttons scaled down */
+}
 
+.game-mode-rpsls .spock, .game-mode-rpsls .lizard {
+  opacity: 1; /* Fully visible */
+  transform: scale(1); /* Scale to normal size */
+}

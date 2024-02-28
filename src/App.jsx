@@ -98,7 +98,7 @@ function App() {
         Switch Mode
       </button>
       <main>
-        <section className="choices">
+        <section className={`choices ${gameMode === 'rpsls' ? 'game-mode-rpsls' : ''}`}>
           <button id="rock" className="choice-button rock" onClick={() => playRound('rock')}>
             <div className="inner">
               <img src={iconRock} alt="Rock" />

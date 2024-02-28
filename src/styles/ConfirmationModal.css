@@ -30,4 +30,5 @@
     flex-direction: column;
     gap: 10px;
     margin: auto; /* Center the modal */
+    max-width: 600px; /* Maximum width of the modal */
   }
