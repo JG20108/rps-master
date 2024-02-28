@@ -146,7 +146,7 @@ function App() {
       <footer>
         <button className="rules" onClick={toggleModal}>Rules</button>
       </footer>
-      <RulesModal isOpen={isModalOpen} onClose={toggleModal} />
+      <RulesModal isOpen={isModalOpen} onClose={toggleModal} gameMode={gameMode} />
 
       <ConfirmationModal
         isOpen={isConfirmationModalOpen}
@@ -163,7 +163,7 @@ function App() {
 
       <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
-        Coded by <a href="#">José Guillén</a>.
+        Coded by <a href="https://portfolio-theta-gold-13.vercel.app" target="_blank">José Guillén</a>.
       </div>
     </>
   );

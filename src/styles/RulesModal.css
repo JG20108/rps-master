@@ -46,6 +46,14 @@
     color: hsl(39, 89%, 49%); /* Color for scissors */
   }
 
+  .lizard-text {
+    color: hsl(261, 73%, 60%); /* Example color for lizard */
+  }
+
+  .spock-text {
+    color: hsl(189, 59%, 53%); /* Example color for spock */
+  }
+
   @keyframes scrollCredits {
     0% {
       transform: translateY(100%);
