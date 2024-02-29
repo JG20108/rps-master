@@ -270,3 +270,57 @@ footer {
   opacity: 1;
   transform: scale(1);
 }
+
+@media (max-width: 480px) {
+  header {
+    font-size: 1.2rem; /* Smaller font size for the header */
+    padding: 0.5rem; /* Smaller padding */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 0.5rem; /* Add gap between elements */
+  }
+  .choice-button .inner img, .computer-choice-button .inner img {
+    width: 2.5rem; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .score-board {
+    font-size: 1rem; /* Smaller font size for better fit */
+    padding: 0.25rem 0.5rem; /* Reduce padding */
+    margin: 0; /* Remove margin */
+  }
+  .choices {
+    width: 80vw; /* Adjusted for better fit on smaller screens */
+    height: auto; /* To accommodate content dynamically */
+    margin: 2rem auto; /* Reduced margin */
+  }
+  .choice-button, .computer-choice-button {
+    width: 20vw; /* Changed to vw for responsiveness */
+    height: 20vw; /* Changed to vw for responsiveness */
+    max-width: 11.875rem; /* Max size limit */
+    max-height: 11.875rem; /* Max size limit */
+  }
+  header, .logo-text, .score-board {
+    font-size: 1rem; /* Adjust font sizes for readability */
+  }
+  .game-mode-toggle {
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+    font-size: 0.6rem; /* Smaller font size */
+    top: 0.5rem; /* Adjust position */
+    right: 0.5rem;
+  }
+  .result {
+    font-size: 0.8rem; /* Smaller font size for the result text */
+    padding-top: 10.5rem; /* Add padding for spacing */
+  }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .choices {
+    flex-direction: row; /* Change layout to row for landscape */
+    flex-wrap: wrap; /* Allow choices to wrap */
+    justify-content: center; /* Center choices horizontally */
+    height: auto; /* Adjust height to fit content */
+  }
+  .choice-button, .computer-choice-button {
+    margin: 1vw; /* Add margin for spacing */
+  }
+}
