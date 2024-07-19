@@ -1,46 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import './styles/RulesModal.css';
 import PropTypes from 'prop-types';
 
-function RulesModal({ isOpen, onClose, gameMode }) { // Add gameMode to the function parameters
+function RulesModal({ isOpen, onClose, gameMode }) {
   const modalContentRef = useRef(null);
-  const [animationClass, setAnimationClass] = useState('');
-
-  useEffect(() => {
-    const handleAnimationEnd = () => {
-      setAnimationClass(''); // First, remove the class to reset the animation
-      setTimeout(() => setAnimationClass('run-animation'), 10); // Then, re-add the class to restart the animation
-    };
-
-    const modalContent = modalContentRef.current;
-    if (modalContent) {
-      modalContent.addEventListener('animationend', handleAnimationEnd);
-    }
-
-    return () => {
-      if (modalContent) {
-        modalContent.removeEventListener('animationend', handleAnimationEnd);
-      }
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    let timeoutId;
-    if (isOpen) {
-      setAnimationClass('run-animation');
-    } else {
-      // Wait for the CSS transition to finish before removing the animation class
-      timeoutId = setTimeout(() => {
-        setAnimationClass('');
-      }, 500); // This delay should match the CSS transition time
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [isOpen]);
 
   const handleClose = () => {
     if (modalContentRef.current) {
-      modalContentRef.current.scrollTop = 0; // Reset the scroll to the top immediately
+      modalContentRef.current.scrollTop = 0;
     }
     onClose();
   };
@@ -48,7 +15,7 @@ function RulesModal({ isOpen, onClose, gameMode }) { // Add gameMode to the func
   return (
     <div className={isOpen ? "modal-overlay open" : "modal-overlay"} onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()} ref={modalContentRef}>
-        <div className={`credits-container ${animationClass}`}>
+        <div className="credits-container">
           <h2>{gameMode === 'rps' ? 'Rock Paper Scissors' : 'Rock Paper Scissors Lizard Spock'}</h2>
           <p>Prepare to clash in the ultimate game of wit and strategy, where cosmic forces collide. Here&apos;s how to become a champion:</p>
           <ul>
@@ -77,7 +44,7 @@ function RulesModal({ isOpen, onClose, gameMode }) { // Add gameMode to the func
 RulesModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  gameMode: PropTypes.string.isRequired, // Add gameMode to propTypes
+  gameMode: PropTypes.string.isRequired,
 };
 
 export default RulesModal;

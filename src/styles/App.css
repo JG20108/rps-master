@@ -94,6 +94,7 @@ main {
 
 /* Position each button in the triangular pattern */
 #rock {
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0); /* Adjust to align properly at the bottom */
@@ -290,7 +291,7 @@ footer {
   .choices {
     width: 80vw; /* Adjusted for better fit on smaller screens */
     height: auto; /* To accommodate content dynamically */
-    margin: 2rem auto; /* Reduced margin */
+    margin: 12rem auto; /* Reduced margin */
   }
   .choice-button, .computer-choice-button {
     width: 20vw; /* Changed to vw for responsiveness */
@@ -319,6 +320,7 @@ footer {
     flex-wrap: wrap; /* Allow choices to wrap */
     justify-content: center; /* Center choices horizontally */
     height: auto; /* Adjust height to fit content */
+    margin-top: 10vw; /* Add margin for spacing */
   }
   .choice-button, .computer-choice-button {
     margin: 1vw; /* Add margin for spacing */

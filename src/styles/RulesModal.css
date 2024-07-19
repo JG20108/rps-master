@@ -6,13 +6,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0; /* Start with the overlay being transparent */
     visibility: hidden; /* Start with the overlay not being visible */
-    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition for both properties */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for both properties */
+    z-index: 1000;
   }
 
   .modal-overlay.open {
@@ -25,13 +26,71 @@
     padding: 2rem;
     border-radius: 10px;
     color: #000; /* Ensure text color is visible against a white background */
-    font-size: 1.75rem; /* Adjust font size as needed */
-    width: 65vw; /* Set the width to 65% of the viewport */
-    height: 85vh; /* Set the width to 65% of the viewport */
-    overflow: hidden; /* Hide the overflow */
-    position: relative; /* Position relative for the absolute positioned credits */
+    font-size: 1rem; /* Adjust font size as needed */
+    width: auto;
+    max-width: 85vw;
+    height: auto;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
     line-height: 1.5; /* Add more line height for better readability */
-    pointer-events: none; /* This will make the button non-interactive */
+  }
+
+  .credits-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 769px) {
+    .modal-content {
+      min-width: 600px;
+    }
+
+    .credits-container {
+      padding: 0 2rem;
+    }
+
+    .credits-container h2 {
+      font-size: 2rem; /* Larger font size for headings on bigger screens */
+    }
+
+    .credits-container p,
+    .credits-container ul {
+      font-size: 1.2rem; /* Larger font size for text on bigger screens */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 90vw;
+      padding: 1.5rem;
+    }
+
+    .credits-container h2 {
+      font-size: 1.1rem;
+    }
+
+    .credits-container p,
+    .credits-container ul {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modal-content {
+      padding: 0.7rem;
+    }
+
+    .credits-container h2 {
+      font-size: 0.9rem;
+    }
+
+    .credits-container p,
+    .credits-container ul {
+      font-size: 0.7rem;
+    }
   }
 
   .rock-text {
@@ -54,30 +113,10 @@
     color: hsl(189, 59%, 53%); /* Example color for spock */
   }
 
-  @keyframes scrollCredits {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  }
-
-  .credits-container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    max-width: 80%; /* Set max-width to 50% of the modal-content width */
-    margin: 0 auto; /* Center the container */
-    margin-left: 6rem;
-    animation: none; /* Remove the animation here */
-    visibility: hidden; /* Make it hidden by default */
-  }
-
   .credits-container h2 {
     font-family: "Orbitron", sans-serif; /* Apply the Orbitron font family */
     margin-bottom: 1rem; /* Add space below the heading */
-    font-size: 2.4375rem; /* Changed from 39px to a relative unit */
+    font-size: 1.5rem; /* Changed from 39px to a relative unit */
     text-transform: uppercase; /* Uppercase the text */
   }
 
@@ -89,23 +128,4 @@
 
   .credits-container li {
     margin-bottom: 0.5rem; /* Add space below list items */
-  }
-
-  .credits-container .close-button {
-    margin-top: 2rem; /* Add space above the close button */
-    padding: 0.5rem 1rem; /* Add padding to the button */
-    font-size: 1rem; /* Adjust font size for the button */
-    text-transform: uppercase; /* Uppercase the button text */
-    letter-spacing: 1px; /* Add letter spacing to the button text */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-    border: 1px solid white; /* Add border to the button */
-    background: none; /* Remove any background from the button */
-    color: white; /* Set the button text color */
-    pointer-events: auto; /* Ensure the close button is interactive */
-  }
-
-  /* This class will be added or removed by JavaScript */
-  .credits-container.run-animation {
-    animation: scrollCredits 30s linear forwards; /* Define the animation */
-    visibility: visible; /* Only make it visible when animating */
   }
